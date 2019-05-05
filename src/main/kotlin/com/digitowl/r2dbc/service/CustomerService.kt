@@ -15,6 +15,7 @@ constructor(private val customerRepository: CustomerRepository) {
     fun findCustomerFirstnameAndLastname(firstName: String, lastName: String): Mono<Customer> =
             customerRepository.findCustomerFirstnameAndLastname(firstName, lastName)
 
+    //TODO rework to have update and create
     fun createCustomer(customer: Customer) = customerRepository.save(customer)
 
     fun findAll() = customerRepository.findAll()
