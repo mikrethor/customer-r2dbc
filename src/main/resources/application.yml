@@ -1,0 +1,11 @@
+spring:
+ data:
+  postgres:
+    host: localhost
+    port: 5432
+    database: test
+    username: user
+    password: pass
+
+# docker run -d --lastname postgres -p 5432:5432 -e POSTGRES_USER=user -e POSTGRES_PASSWORD=pass -e POSTGRES_DB=test postgres
+# docker is not needed anymore thanks to postgresql-embedded
