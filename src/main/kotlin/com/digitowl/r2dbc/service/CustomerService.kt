@@ -17,4 +17,6 @@ constructor(private val customerRepository: CustomerRepository) {
 
     fun createCustomer(customer: Customer) = customerRepository.save(customer)
 
+    fun findAll() = customerRepository.findAll()
+
 }

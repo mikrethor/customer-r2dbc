@@ -1,6 +1,6 @@
 package com.digitowl.r2dbc.repository
 
-import com.digitowl.r2dbc.DbConfig
+import com.digitowl.r2dbc.config.DbConfig
 import com.digitowl.r2dbc.domain.Customer
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.BeforeEach

@@ -1,4 +1,4 @@
-package com.digitowl.r2dbc
+package com.digitowl.r2dbc.config
 
 import io.r2dbc.postgresql.PostgresqlConnectionConfiguration
 import io.r2dbc.postgresql.PostgresqlConnectionFactory
