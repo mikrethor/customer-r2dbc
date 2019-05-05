@@ -9,5 +9,5 @@ interface CustomerRepository : R2dbcRepository<Customer, Long> {
 
     //Don't do select c from customer c where lastname = :lastname
     @Query("select id, lastname, firstname from Customer where firstName = :firstName and lastname = :lastName")
-    fun findCustomerFisrtnameAndLastname(firstName: String, lastName: String): Mono<Customer>
+    fun findCustomerFirstnameAndLastname(firstName: String, lastName: String): Mono<Customer>
 }

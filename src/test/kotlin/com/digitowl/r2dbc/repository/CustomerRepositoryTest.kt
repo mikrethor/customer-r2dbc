@@ -1,7 +1,7 @@
-package com.digitowl.r2dbc
+package com.digitowl.r2dbc.repository
 
+import com.digitowl.r2dbc.DbConfig
 import com.digitowl.r2dbc.domain.Customer
-import com.digitowl.r2dbc.repository.CustomerRepository
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -34,27 +34,27 @@ class CustomerRepositoryTest(@Autowired
     }
 
     @Test
-    fun findCustomerFisrtnameAndLastname() {
-        StepVerifier.create(customerRepository.findCustomerFisrtnameAndLastname("firstname", "lastname"))
+    fun `Find a customer by his firstname and his lastname`() {
+        StepVerifier.create(customerRepository.findCustomerFirstnameAndLastname("firstname", "lastname"))
                 .assertNext { c -> Assertions.assertThat("lastname").isEqualTo(c.lastname) }.verifyComplete()
     }
 
     @Test
-    fun findCustomerById() {
+    fun `Find a customer by his id`() {
         StepVerifier.create(customerRepository.findById(id))
                 .assertNext { c -> Assertions.assertThat("nom by id").isEqualTo(c.lastname) }
                 .verifyComplete()
     }
 
     @Test
-    fun save() {
+    fun `Save a customer`() {
         val id: Long? = null
         val client = Customer(id, "firstname 2", "nom 2")
         //save with id is an update so id must be null in order to have an insert
         StepVerifier.create(customerRepository.save(client))
                 .expectNext(client)
                 .verifyComplete()
-        StepVerifier.create(customerRepository.findCustomerFisrtnameAndLastname("firstname 2", "nom 2"))
+        StepVerifier.create(customerRepository.findCustomerFirstnameAndLastname("firstname 2", "nom 2"))
                 .assertNext {
 
                     c ->

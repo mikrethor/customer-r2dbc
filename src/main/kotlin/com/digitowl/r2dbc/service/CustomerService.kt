@@ -12,8 +12,8 @@ constructor(private val customerRepository: CustomerRepository) {
 
     fun findCustomerById(id: Long): Mono<Customer> = customerRepository.findById(id)
 
-    fun findCustomerFisrtnameAndLastname(firstName: String, lastName: String): Mono<Customer> =
-            customerRepository.findCustomerFisrtnameAndLastname(firstName, lastName)
+    fun findCustomerFirstnameAndLastname(firstName: String, lastName: String): Mono<Customer> =
+            customerRepository.findCustomerFirstnameAndLastname(firstName, lastName)
 
     fun createCustomer(customer: Customer) = customerRepository.save(customer)
 
