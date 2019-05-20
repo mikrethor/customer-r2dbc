@@ -9,7 +9,8 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.DependsOn
 import org.springframework.data.r2dbc.config.AbstractR2dbcConfiguration
-import org.springframework.data.r2dbc.function.DatabaseClient
+import org.springframework.data.r2dbc.core.DatabaseClient
+
 import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories
 import ru.yandex.qatools.embed.postgresql.PostgresProcess
 import ru.yandex.qatools.embed.postgresql.PostgresStarter
@@ -19,6 +20,7 @@ import ru.yandex.qatools.embed.postgresql.distribution.Version
 import java.io.IOException
 import java.sql.DriverManager
 import java.util.*
+
 
 @Configuration
 @EnableR2dbcRepositories(basePackageClasses = [CustomerRepository::class])

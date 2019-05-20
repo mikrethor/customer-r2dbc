@@ -55,17 +55,9 @@ class CustomerRepositoryTest(@Autowired
                 .expectNext(client)
                 .verifyComplete()
         StepVerifier.create(customerRepository.findCustomerFirstnameAndLastname("firstname 2", "nom 2"))
-                .assertNext {
-
-                    c ->
-                    // not working
-                    //Assertions.assertThat(c === client).isEqualTo(true)
-                    //Assertions.assertThat(c == client).isEqualTo(true)
-
+                .assertNext { c ->
                     run {
-                        Assertions.assertThat("nom 2").isEqualTo(c.lastname)
-                        Assertions.assertThat("firstname 2").isEqualTo(c.firstname)
-                        Assertions.assertThat(client.id).isEqualTo(c.id)
+                        Assertions.assertThat(client).isEqualToComparingFieldByField(c)
                     }
                 }
                 .verifyComplete()

@@ -8,6 +8,6 @@ import reactor.core.publisher.Mono
 interface CustomerRepository : R2dbcRepository<Customer, Long> {
 
     //Don't do select c from customer c where lastname = :lastname
-    @Query("select id, lastname, firstname from Customer where firstName = :firstName and lastname = :lastName")
+    @Query("select id, firstname, lastname from Customer where firstName = :firstName and lastname = :lastName")
     fun findCustomerFirstnameAndLastname(firstName: String, lastName: String): Mono<Customer>
 }

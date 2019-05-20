@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
 
 @Service
-class CustomerService @Autowired
-constructor(private val customerRepository: CustomerRepository) {
+class CustomerService constructor(@Autowired private val customerRepository: CustomerRepository) {
 
     fun findCustomerById(id: Long): Mono<Customer> = customerRepository.findById(id)
 
